@@ -1,0 +1,238 @@
+    /* style.css */
+
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, hsl(220, 60%, 8%) 0%, hsl(210, 70%, 12%) 50%, hsl(220, 50%, 6%) 100%);
+            color: hsl(210, 40%, 98%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        /* Background glow effects */
+        .bg-glow {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 384px;
+            height: 384px;
+            background: hsla(210, 100%, 55%, 0.1);
+            border-radius: 50%;
+            filter: blur(48px);
+        }
+
+        .glow-2 {
+            position: absolute;
+            bottom: 25%;
+            right: 25%;
+            width: 320px;
+            height: 320px;
+            background: hsla(200, 100%, 60%, 0.1);
+            border-radius: 50%;
+            filter: blur(48px);
+        }
+
+        /* Title */
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, hsl(210, 100%, 55%) 0%, hsl(200, 100%, 60%) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Card */
+        .card {
+            background: linear-gradient(145deg, hsla(220, 50%, 18%, 0.8) 0%, hsla(220, 50%, 12%, 0.6) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid hsla(220, 40%, 25%, 0.5);
+            border-radius: 16px;
+            padding: 32px;
+            width: 100%;
+            max-width: 450px;
+            justify-content : center;
+            display : flex;
+            box-shadow: 0 0 40px hsla(210, 100%, 55%, 0.3);
+            animation: scaleIn 0.3s ease-out;
+        }
+
+        .card h2 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        /* Options container */
+        .options {
+            display:flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        /* Option box */
+        .option-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            list-style: none;
+            gap: 12px;
+            padding: 24px;
+            border-radius: 12px;
+            border: 2px solid hsla(220, 40%, 25%, 0.5);
+            background: hsla(220, 40%, 20%, 0.3);
+            min-width: 170px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option-box:hover {
+            transform: scale(1.05);
+            border-color: hsla(210, 100%, 55%, 0.6);
+            background: hsla(220, 40%, 20%, 0.5);
+        }
+
+        .option-box.selected {
+            border-color: hsl(210, 100%, 55%);
+            background: hsla(210, 100%, 55%, 0.1);
+            box-shadow: 0 0 20px hsla(210, 100%, 55%, 0.3);
+        }
+
+        .option-box .label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: hsl(215, 20%, 65%);
+        }
+
+        .option-box a {
+            color: white;
+        }
+        .option-box.selected .label {
+            color: hsl(210, 100%, 55%);
+        }
+
+         /* Button */
+        .btn {
+            width: 100%;
+            height: 48px;
+            text-align : center;
+            border-radius: 12px;
+            padding: 0 32px;
+            font-size: 1rem;
+            font-weight: 500;
+            background: linear-gradient(135deg, hsl(210, 100%, 55%) 0%, hsl(200, 100%, 60%) 100%);
+            color: hsl(210, 40%, 98%);
+            border: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+            box-shadow: 0 10px 30px hsla(210, 100%, 55%, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px hsla(210, 100%, 55%, 0.5);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Button box */
+        .button-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 24px;
+            border-radius: 12px;
+            border: 2px solid hsla(220, 40%, 25%, 0.5);
+            background: hsla(220, 40%, 20%, 0.3);
+            min-width: 170px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Dialog overlay */
+        .dialog-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: hsla(220, 60%, 8%, 0.8);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .dialog-overlay.show {
+            display: flex;
+        }
+
+        .dialog {
+            background: linear-gradient(145deg, hsla(220, 50%, 18%, 0.9) 0%, hsla(220, 50%, 12%, 0.8) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid hsla(220, 40%, 25%, 0.5);
+            border-radius: 16px;
+            padding: 24px;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .dialog h3, h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .dialog h4 {
+            font-size: 1.0rem;
+            font-weight: 400;
+            color:white;
+            margin-bottom: 8px;
+        }
+
+        .dialog p {
+            color: hsla(210, 40%, 98%, 0.8);
+            font-size: 1rem;
+        }
+
+        .dialog .close-btn {
+            margin-top: 16px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: hsla(220, 40%, 20%, 0.5);
+            border: 1px solid hsla(220, 40%, 25%, 0.5);
+            color: hsl(210, 40%, 98%);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dialog .close-btn:hover {
+            background: hsla(220, 40%, 25%, 0.7);
+        }

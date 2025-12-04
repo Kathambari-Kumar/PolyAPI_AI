@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolyAPI AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <!-- Background glow effects -->
+    <div class="bg-glow">
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+    </div>
+
+    <!-- Title -->
+    <h1>
+        <span class="gradient-text">PolyAPI AI</span><br>
+    </h1>
+
+    <!-- Main Card -->
+    <div class="card">
+        <div class="options">
+            <div class="option-box">
+                <li><a href="/emotion_selection">Emotion Detector</a></li>
+            </div>
+            <div class="option-box">
+               <li> <a href="/image_upload">Image Captioning (Upload)</a></li>
+            </div>
+            <div class="option-box">
+                <li><a href="/url_selection">Web Image Annotator</a></li>
+            </div>
+        </div>
+   </div>
+
+</body>
+</html>
+

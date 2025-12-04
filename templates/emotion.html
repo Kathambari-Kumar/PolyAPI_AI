@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Based Recommendation App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <!-- Background glow effects -->
+    <div class="bg-glow">
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+    </div>
+
+    <!-- Title -->
+    <h1>
+        <span class="gradient-text">Emotion Based</span><br>
+        Recommendation App
+    </h1>
+
+    <!-- Main Card -->
+    <div class="card">
+        <form method="POST" action="/recommendations">
+        <div class="options">
+            <div class="option-box">
+                <label for="person">Select a Person:</label>
+                <select name="person" id="person">
+                    {% for user in users %}
+                        <option value="{{ user }}">{{ user }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="option-box">
+                <label for="emotion">Select Emotion:</label>
+                <select name="emotion" id="emotion">
+                    <option value="fear">Fear</option>
+                    <option value="happy">Happy</option>
+                    <option value="anger">Anger</option>
+                    <option value="depression">Depression</option>
+                    <option value="nervous">Nervous</option>
+                </select>
+            </div>
+   </div>
+
+        <!-- Button -->
+         <div class="button-box">
+            <button class="btn" type="submit">Get Recommendation</button>
+             <a class="btn"  style="text-decoration:none; padding-top:10px;" href="{{ url_for('index') }}">Home</a>
+          </div>
+        </form>
+    </div>
+
+    <!-- Dialog Box -->
+    <div class="dialog-overlay {% if recommendations %}show{% endif %}" id="dialogOverlay" onclick="closeDialog(event)">
+        <div class="dialog">
+            <h3 class="gradient-text">Recommendations </h3>
+            <h4> Name :  {{ person }} </h4>
+            <h4> Emotion: {{ emotion }}</h4>
+            {% if recommendations %}
+            <p><strong>Recipe:</strong> {{ recommendations.recipe }}</p>
+            <p><strong>Recipe Source URL :</strong> </p>
+            <a href="{{ recommendations.recipe_url }}" target="_blank">
+                {{ recommendations.recipe_url }}
+                    </a>
+             <p><strong>Book:</strong> {{ recommendations.book }}</p>
+            <p><strong>Song:</strong> {{ recommendations.song }}</p>
+            <p><strong>Song Artist:</strong> {{ recommendations.song_artist }}</p>
+            {% else %}
+            <p>No recommendations yet. Please select an emotion.</p>
+            {% endif %}
+             <button class="close-btn" onclick="closeDialog()">Close</button>
+        </div>
+    </div>
+
+<script>
+    const dialogOverlay = document.getElementById("dialogOverlay");
+    function closeDialog() {
+        dialogOverlay.classList.remove("show");
+    }
+</script>
+
+</body>
+</html>
+

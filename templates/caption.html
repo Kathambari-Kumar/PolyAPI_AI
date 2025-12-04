@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Caption Generation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <!-- Background glow effects -->
+    <div class="bg-glow">
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+    </div>
+
+    <!-- Title -->
+    <h1>
+        <span class="gradient-text">Image Caption Generation</span><br>
+    </h1>
+
+    <!-- Main Card -->
+    <div class="card">
+        <form method="POST" action="/caption_generation" enctype="multipart/form-data">
+        <div class="options">
+            <div class="option-box">
+                <input type="file" name="image" id="image" accept="image/*">
+            </div>
+        </div>
+
+        <!-- Button -->
+            <div class="button-box">
+                <button class="btn" type="submit">Generate Caption</button>
+                 <a class="btn"  style="text-decoration:none; padding-top:10px;" href="{{ url_for('index') }}">Home</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Dialog Box -->
+        <div class="dialog-overlay {% if caption %}show{% endif %}" id="dialogOverlay" onclick="closeDialog(event)">
+        <div class="dialog">
+            {% if caption %}
+                <h3 class="gradient-text"><p><strong>Caption:</strong> {{ caption }}</p></h3>
+                <h4>Uploaded Image: </h4>
+                <img src="{{ image_url }}" style="width:200px;height:200px" alt="Uploaded image"/>
+             {% endif %}
+            <button class="close-btn" onclick="closeDialog()">Close</button>
+        </div>
+        </div>
+
+<script>
+    const dialogOverlay = document.getElementById("dialogOverlay");
+    function closeDialog() {
+        dialogOverlay.classList.remove("show");
+    }
+  </script>
+
+</body>
+</html>
+

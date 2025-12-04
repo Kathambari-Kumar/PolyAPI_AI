@@ -1,0 +1,8 @@
+.env
+automate_url_captioner.py
+image_cap_app.py
+img_captioning.py
+local_file_image_captioner.py
+sunset.jpg
+Image Folder/
+captions.txt
