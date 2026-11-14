@@ -1,4 +1,4 @@
-# PolyAPI AI Multi-App
+# PolyAPI AI
 
 A modular AI web application and RESTful microservice built with **Python** and **Flask** that combines computer vision, emotion detection, and automated web scraping into a single platform.
 
