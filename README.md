@@ -28,7 +28,7 @@ A modular AI web application and RESTful microservice built with **Python** and 
    ```bash
    pip install -r requirements.txt
    ```
-**Acknowledgments & Licensing**
+## Acknowledgments & Licensing
 
 BLIP (Bootstrapping Language - Image Pretraining) Provided via Hugging Face Transformers. 
 Licensed under the MIT License - free to use, modify, and distribute with attribution.
